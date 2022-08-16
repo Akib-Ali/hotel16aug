@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    
+    <div id="container">
+
+
+
+
+
+    
+
+        <div id="left_address_box">
+
+
+            <label for="" id="login">Login</label>
+    
+    
+    
+    
+
+
+
+            <div id="inputmaindiv">
+
+
+          <div id="istbox">
+
+            <div id="contact">Contact</div>
+            <input type="email" name="" id="emailcheck" placeholder="Enter your Email">
+            
+          </div>
+
+        
+
+
+
+          <div id="istbox">
+
+            <div id="contact">Ship to</div>
+            <input type="password" name="" id="addresscheck" placeholder="Enter your password">
+            
+          </div>                       
+
+
+
+            </div>                
+
+
+
+
+
+    
+
+
+
+            <div id="btn_return">                                           <!--buttondiv-->
+
+            
+
+                <button id="checkbtn">Login</button>       
+
+
+ 
+
+            </div>
+
+
+        
+
+    </div>
+
+</body>
+</html>
+
+<!--<script src="Address.js"></script>   -->
+
+
+<script>
+
+  document.getElementById("checkbtn").addEventListener("click", checkfun)
+
+  var registeruser = JSON.parse(localStorage.getItem("userdatabase"))
+
+
+
+  function checkfun(){
+
+    console.log("successbtn")
+
+    var checkemail = document.querySelector("#emailcheck").value;
+
+    var checkaddress= document.querySelector("#addresscheck").value;
+
+
+
+    if(checkemail == "admin@gmail.com"  && checkaddress == "masai"){
+
+        window.location.href = "admin.html"
+     }
+
+     else{
+
+        for(var i = 0; i < registeruser.length; i++){
+
+            if(registeruser[i].email == checkemail  &&  registeruser[i].address== checkaddress ){
+
+                window.location.href = "Succeess.html"
+                 var flag = true;
+                 break;
+
+             }
+
+         }
+
+             if(flag){
+             alert("Please confirm once,  ")
+             }
+
+
+            else{
+                 alert("login failed")
+             }
+
+         }
+    
+         console.log("login Successful")
+         
+
+
+  }
+</script>
